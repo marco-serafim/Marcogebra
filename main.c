@@ -22,13 +22,13 @@ int main(){
     	double y[9999];	// will contain all the y values
 
    	double range_final = 10; // final x value               
-	double xv = 0; // initial x value:
+	double xv = -10; // initial x value:
 	double resolution = 0.01; // resolution (smaller, more precise), default 0.01               
 
     	for(; xv < range_final; xv += resolution)	// function calculation
 	{
 		x[list_index] = xv; // Getting the x value for a certain index
-		y[list_index] = pow(xv, 2); // here comes your function (same index as x's)
+		y[list_index] = xv * 2 + 9; // here comes your function (same index as x's)
 	
 		// writing to the text file
 
