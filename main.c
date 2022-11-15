@@ -1,15 +1,15 @@
-#include "pbPlots.h"
-#include "supportLib.h"
+#include "LIB/pbPlots.h"
+#include "LIB/supportLib.h"
 #include <math.h>
 #include <stdio.h>
 
 
 int main(){
 	FILE* fp;
-	fp = fopen("output.txt", "w"); // here comes the file you want to write to
+	fp = fopen("OUTPUT/output.txt", "w"); // here comes the file you want to write to
 	fprintf(fp, " ");
 	fclose(fp);
-	fp = fopen("output.txt", "a");
+	fp = fopen("OUTPUT/output.txt", "a");
 	
 
 	//
@@ -94,7 +94,7 @@ int main(){
     	DrawScatterPlotFromSettings(ram_image, background, ((void *)0));
     	size_t length;
 		double *ram_png = ConvertToPNG(&length, ram_image->image);
-		WriteToFile(ram_png, length, "final.png");
+		WriteToFile(ram_png, length, "OUTPUT/function_image.png");
     	DeleteImage(ram_image->image);
 
 	//
