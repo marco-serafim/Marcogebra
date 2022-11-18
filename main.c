@@ -2,12 +2,15 @@
 #include "LIB/supportLib.h"
 #include <math.h>
 #include <stdio.h>
-
+#include <time.h>
 
 int main(){
+
+	clock_t start = clock();
+
 	FILE* fp;
 	fp = fopen("OUTPUT/output.txt", "w"); // here comes the file you want to write to
-	fprintf(fp, " ");
+	fprintf(fp, "");
 	fclose(fp);
 	fp = fopen("OUTPUT/output.txt", "a");
 	
@@ -15,7 +18,7 @@ int main(){
 	//
 	// FUNCTION CONFIGURATION
 	//
-	
+
 	int list_index = 0;
 
     	double x[9999];	// will contain all the x values
@@ -25,7 +28,9 @@ int main(){
 	double xv = -10; // initial x value:
 	double resolution = 0.01; // resolution (smaller, more precise), default 0.01               
 
-    	for(; xv < range_final; xv += resolution)	// function calculation
+    	fprintf(fp, "Resolution: %f\nInitial: %f\nFinal: %f\n",resolution, xv, range_final);
+	
+	for(; xv < range_final; xv += resolution)	// function calculation
 	{
 		x[list_index] = xv; // Getting the x value for a certain index
 		y[list_index] = xv * 2 + 9; // here comes your function (same index as x's)
@@ -100,6 +105,11 @@ int main(){
 	//
 	// END OF IMAGE PROCESSING
 	//
+
+	clock_t end = clock();
+	float seconds = (float)(end - start) / CLOCKS_PER_SEC;
+
+	printf("\nCalculation completed. %.2f seconds", seconds);	
 
 	return 0;
 }
