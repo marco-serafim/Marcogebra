@@ -3,9 +3,10 @@
 #include <math.h>
 #include <stdio.h>
 #include <time.h>
+#include <functions.h>
 
 int main(){
-
+	
 	clock_t start = clock();
 
 	FILE* fp;
@@ -14,7 +15,7 @@ int main(){
 	fclose(fp);
 	fp = fopen("OUTPUT/output.txt", "a");
 	
-
+	
 	//
 	// FUNCTION CONFIGURATION
 	//
@@ -33,7 +34,7 @@ int main(){
 	for(; xv < range_final; xv += resolution)	// function calculation
 	{
 		x[list_index] = xv; // Getting the x value for a certain index
-		y[list_index] = xv * 2 + 9; // here comes your function (same index as x's)
+		y[list_index] = function_make(xv); // here comes your function (same index as x's)
 	
 		// writing to the text file
 
